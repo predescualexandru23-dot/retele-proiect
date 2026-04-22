@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: fileshare-server
+    ports:
+      - "5000:5000"
+    volumes:
+      # Persistam users.txt in afara containerului
+      - ./server/data:/app/data
+    restart: unless-stopped

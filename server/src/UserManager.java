@@ -5,7 +5,7 @@ import java.util.*;
 
 public class UserManager {
     // Fisierul unde stocam username:hash_parola
-    private static final String USERS_FILE = "users.txt";
+    private static final String USERS_FILE = "data/users.txt";
 
     // Hashuieste o parola cu SHA-256
     public static String hashParola(String parola) throws Exception {
@@ -21,6 +21,9 @@ public class UserManager {
     // Inregistreaza un user nou — returneaza false daca exista deja
     public static synchronized boolean inregistreaza(String username, String parola) throws Exception {
         if (existaUser(username)) return false;
+
+        // Cream folderul data daca nu exista
+        new java.io.File("data").mkdirs();
 
         String hash = hashParola(parola);
         try (FileWriter fw = new FileWriter(USERS_FILE, true)) {
