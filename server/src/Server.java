@@ -12,7 +12,6 @@ public class Server {
             while (true) {
                 Socket socket = serverSocket.accept();
                 System.out.println("Client nou conectat: " + socket.getInetAddress());
-
                 ClientHandler handler = new ClientHandler(socket);
                 clients.add(handler);
                 new Thread(handler).start();
@@ -22,12 +21,18 @@ public class Server {
         }
     }
 
-    // Trimite un mesaj tuturor clientilor conectati, mai putin celui care l-a trimis
     public static void broadcast(String mesaj, ClientHandler expeditor) {
         for (ClientHandler c : clients) {
             if (c != expeditor) {
                 c.trimite(mesaj);
             }
         }
+    }
+
+    public static ClientHandler gasestClient(String username) {
+        for (ClientHandler c : clients) {
+            if (username.equals(c.username)) return c;
+        }
+        return null;
     }
 }
