@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.io.*;
 import java.net.*;
 import java.nio.file.*;
@@ -164,7 +165,16 @@ public class Client {
                 }
             } catch (IOException e) {
                 if (conectat) {
-                    window.getMainPanel().setStatus("Conexiune pierduta.");
+                    conectat = false;
+                    SwingUtilities.invokeLater(() -> {
+                        window.getMainPanel().setStatus("❌ Conexiune pierduta.");
+                    });
+                    // Asteptam 2 secunde ca userul sa vada mesajul
+                    try { Thread.sleep(2000); } catch (InterruptedException ex) {}
+                    SwingUtilities.invokeLater(() -> {
+                        window.getMainPanel().reseteaza();
+                        window.arataLogin();
+                    });
                 }
             }
         }).start();

@@ -1,10 +1,8 @@
-### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
 .kotlin
 
-### Eclipse ###
 .apt_generated
 .classpath
 .factorypath
@@ -16,38 +14,29 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
-### NetBeans ###
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
 
-### VS Code ###
 .vscode/
 
-### Mac OS ###
 .DS_Store
 
-# Folderele cu fisierele utilizatorilor
 shares/
 
-# Folderele vechi de test
 share/
 share_alex/
 share_iustin/
 
-# Fisierul cu parole (nu vrei asta pe GitHub)
 users.txt
 
-# Fisiere generate de IntelliJ
 .idea/
 *.iml
 out/
 
-# Fisiere generate de Java
 *.class
 
-# Fisiere sistem
 .DS_Store
 Thumbs.db
