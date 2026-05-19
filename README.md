@@ -37,6 +37,7 @@ Fișierele binare folosesc același format: prefix de lungime urmat de bytes bru
 
 ## Structură proiect
 
+```
 FileShare/
 ├── server/
 │   ├── src/
@@ -54,6 +55,7 @@ FileShare/
 │       └── DirectoryWatcher.java
 ├── docker-compose.yml
 └── README.md
+```
 
 ## Rulare
 
